@@ -7,6 +7,6 @@ public class CommKeys {
 	
 	public static final String baiduMapAK = "688Xa8xGKxLVe58P5ou7Z8XL";
 	
-	public static final String keyWord = "我要找";
+	public static final String keyWord = "我要找反对舒服321321321321321321";
 	
 }
