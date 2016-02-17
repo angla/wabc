@@ -1,1 +1,5 @@
 /wabc/
+
+target/classes/com/yc/wabc/bean/CommKeys.class
+
+*.class
