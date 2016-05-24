@@ -2,8 +2,8 @@ package com.yc.wabc.bean;
 
 /**
  * 周边检索
- * @author Administrator
  *
+ * @author Administrator
  */
 public class Rim {
 }

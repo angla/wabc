@@ -1,66 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://www.springframework.org/schema/beans" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
+       xmlns="http://www.springframework.org/schema/beans" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
 	 http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	 http://code.alibabatech.com/schema/dubbo  
      http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
-		destroy-method="close">
-		<property name="driverClassName">
-			<value>com.mysql.jdbc.Driver</value>
-		</property>
-		<property name="url" value="jdbc:mysql://localhost:3306/sample_db" />
-		<property name="username">
-			<value>vds</value>
-		</property>
-		<property name="password">
-			<value>vds</value>
-		</property>
-		<!-- 池启动时创建的连接数量 -->
-		<property name="initialSize" value="32" />
-		<!-- 同一时间可以从池分配的最多连接数量。设置为0时表示无限制。 -->
-		<property name="maxActive" value="48" />
-		<!-- 池里不会被释放的最多空闲连接数量。设置为0时表示无限制。 -->
-		<property name="maxIdle" value="48" />
-		<!-- 在不新建连接的条件下，池中保持空闲的最少连接数。 -->
-		<property name="minIdle" value="32" />
-		<!-- 设置自动回收超时连接 -->
-		<property name="removeAbandoned" value="true" />
-		<!-- 自动回收超时时间(以秒数为单位) -->
-		<property name="removeAbandonedTimeout" value="180" />
-		<!-- 设置在自动回收超时连接的时候打印连接的超时错误 -->
-		<property name="logAbandoned" value="true" />
-		<!-- 设置是否定时检查连接。 -->
-		<property name="testWhileIdle" value="true" />
-		<property name="testOnBorrow" value="true" />
-		<property name="testOnReturn" value="true" />
-		<property name="minEvictableIdleTimeMillis" value="3600000" />
-		<property name="timeBetweenEvictionRunsMillis" value="60000" />
-		<property name="numTestsPerEvictionRun" value="48" />
-		<!-- 等待超时以毫秒为单位，在抛出异常之前，池等待连接被回收的最长时间（当没有可用连接时）。设置为-1表示无限等待。 -->
-		<property name="maxWait" value="1000" />
-	</bean>
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName">
+            <value>com.mysql.jdbc.Driver</value>
+        </property>
+        <property name="url" value="jdbc:mysql://localhost:3306/sample_db"/>
+        <property name="username">
+            <value>vds</value>
+        </property>
+        <property name="password">
+            <value>vds</value>
+        </property>
+        <!-- 池启动时创建的连接数量 -->
+        <property name="initialSize" value="32"/>
+        <!-- 同一时间可以从池分配的最多连接数量。设置为0时表示无限制。 -->
+        <property name="maxActive" value="48"/>
+        <!-- 池里不会被释放的最多空闲连接数量。设置为0时表示无限制。 -->
+        <property name="maxIdle" value="48"/>
+        <!-- 在不新建连接的条件下，池中保持空闲的最少连接数。 -->
+        <property name="minIdle" value="32"/>
+        <!-- 设置自动回收超时连接 -->
+        <property name="removeAbandoned" value="true"/>
+        <!-- 自动回收超时时间(以秒数为单位) -->
+        <property name="removeAbandonedTimeout" value="180"/>
+        <!-- 设置在自动回收超时连接的时候打印连接的超时错误 -->
+        <property name="logAbandoned" value="true"/>
+        <!-- 设置是否定时检查连接。 -->
+        <property name="testWhileIdle" value="true"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="testOnReturn" value="true"/>
+        <property name="minEvictableIdleTimeMillis" value="3600000"/>
+        <property name="timeBetweenEvictionRunsMillis" value="60000"/>
+        <property name="numTestsPerEvictionRun" value="48"/>
+        <!-- 等待超时以毫秒为单位，在抛出异常之前，池等待连接被回收的最长时间（当没有可用连接时）。设置为-1表示无限等待。 -->
+        <property name="maxWait" value="1000"/>
+    </bean>
 
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource">
-			<ref bean="dataSource" />
-		</property>
-	</bean>
-	
-	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource">
-			<ref bean="dataSource" />
-		</property>
-	</bean>
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+    </bean>
 
-	<bean id="txJdbcTemplate" class="org.springframework.jdbc.core.TxJdbcTemplate">
-		<property name="dataSource">
-			<ref bean="dataSource" />
-		</property>
-	</bean>
-	
-	<bean id="beanKeeper" class="com.dic.boss.util.BeanFactoryKeeper" />
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+    </bean>
+
+    <bean id="txJdbcTemplate" class="org.springframework.jdbc.core.TxJdbcTemplate">
+        <property name="dataSource">
+            <ref bean="dataSource"/>
+        </property>
+    </bean>
+
+    <bean id="beanKeeper" class="com.dic.boss.util.BeanFactoryKeeper"/>
 </beans>

@@ -1,6 +1,6 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <%
-	String path = request.getContextPath();
+    String path = request.getContextPath();
 %>
 <html>
 <head>
@@ -38,17 +38,17 @@
         }
         //微信去掉下方刷新栏
         /*if (navigator.userAgent.indexOf('MicroMessenger') >= 0) {
-            document.addEventListener('WeixinJSBridgeReady', function () {
-                //WeixinJSBridge.call('hideToolbar');
-            });
-        }*/
+         document.addEventListener('WeixinJSBridgeReady', function () {
+         //WeixinJSBridge.call('hideToolbar');
+         });
+         }*/
     </script>
     <!--移动端兼容适配 end -->
     <div id='wx_pic' style='margin:0 auto;display:none;'>
         <img src='image/about/share.jpg'/>
     </div>
-<head>
-	<body>
-		<h2>Hello World!</h2>
-	</body>
+    <head>
+<body>
+<h2>Hello World!</h2>
+</body>
 </html>
